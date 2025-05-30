@@ -1,0 +1,16 @@
+# Global
+.DS_Store
+*.log
+.env
+*.env
+*.pyc
+__pycache__/
+#frontend
+winsecure_frontend/node_modules/*
+
+
+
+#backend
+winsecure_backend/__pycache__/
+winsecure_backend/.venv
+/winsecure_backend/.vscode/
