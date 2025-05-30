@@ -5,12 +5,16 @@
 *.env
 *.pyc
 __pycache__/
-#frontend
+
+# React Frontend
 winsecure_frontend/node_modules/
+winsecure_frontend/.env
+winsecure_frontend/build/
+winsecure_frontend/dist/
+winsecure_frontend/.next/
 
-
-
-#backend
+# Python Backend
 winsecure_backend/__pycache__/
-winsecure_backend/.venv
-/winsecure_backend/.vscode/
+winsecure_backend/.venv/
+winsecure_backend/.vscode/
+winsecure_backend/.env
