@@ -1,20 +1,20 @@
-# Global
-.DS_Store
-*.log
-.env
-*.env
-*.pyc
-__pycache__/
+# # Global
+# .DS_Store
+# *.log
+# .env
+# *.env
+# *.pyc
+# __pycache__/
 
-# React Frontend
-winsecure_frontend/node_modules/
-winsecure_frontend/.env
-winsecure_frontend/build/
-winsecure_frontend/dist/
-winsecure_frontend/.next/
+# # React Frontend
+# winsecure_frontend/node_modules/
+# winsecure_frontend/.env
+# winsecure_frontend/build/
+# winsecure_frontend/dist/
+# winsecure_frontend/.next/
 
-# Python Backend
-winsecure_backend/__pycache__/
-winsecure_backend/.venv/
-winsecure_backend/.vscode/
-winsecure_backend/.env
+# # Python Backend
+# winsecure_backend/__pycache__/
+# winsecure_backend/.venv/
+# winsecure_backend/.vscode/
+# winsecure_backend/.env
