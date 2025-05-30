@@ -1,82 +1,52 @@
 import React, { useState } from 'react';
 
-function Sidebar() {
-  const [openSubmenu, setOpenSubmenu] = useState(null);
-
-  const toggleSubmenu = (index) => {
-    if (openSubmenu === index) {
-      setOpenSubmenu(null);
-    } else {
-      setOpenSubmenu(index);
-    }
-  };
-
-  const menuItems = [
-    { title: 'Dashboard', submenu: null },
-    {
-      title: 'Projects',
-      submenu: ['Active Projects', 'Archived Projects', 'Create New']
-    },
-    {
-      title: 'Teams',
-      submenu: ['Team A', 'Team B', 'Team C']
-    },
-    { title: 'Settings', submenu: null }
-  ];
-
+const Sidebar = () => {
   return (
-    <div className=" mt-[-12%] ml-[-268%] w-75 h-screen bg-gray-800 text-gray-100 p-6 font-sans">
-      <h2 className="text-3xl font-bold mb-8 border-b border-gray-700 pb-2">
-        Sidebar
-      </h2>
-      <ul className="space-y-2">
-        {menuItems.map((item, index) => (
-          <li key={index}>
-            <button
-              onClick={() => item.submenu ? toggleSubmenu(index) : null}
-              className={`
-                w-full flex justify-between items-center px-4 py-2 text-left text-lg rounded-md
-                hover:bg-gray-700 focus:outline-none
-                ${item.submenu ? 'cursor-pointer' : ''}
-              `}
-              aria-expanded={openSubmenu === index ? 'true' : 'false'}
-              aria-controls={`submenu-${index}`}
-            >
-              <span className='text-black'>{item.title}</span>
-              {item.submenu && (
-                <svg
-                  className={`w-4 h-4 transform transition-transform duration-300 ${openSubmenu === index ? 'rotate-90' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path>
-                </svg>
-              )}
-            </button>
-            {item.submenu && openSubmenu === index && (
-              <ul
-                id={`submenu-${index}`}
-                className="mt-1 ml-4 space-y-1 text-gray-300"
-              >
-                {item.submenu.map((subItem, subIndex) => (
-                  <li
-                    key={subIndex}
-                    className="px-3 py-1 rounded-md hover:bg-gray-700 cursor-pointer"
-                  >
-                    {subItem}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col w-85 bg-[#111418] p-4 text-sm items-center ">
+      <h1 className="p-3 text-white text-base font-medium leading-normal">WinSecure</h1>
+      <div className="flex flex-col gap-2 mt-4">
+        <SidebarItem icon="Plus" text="Connection" submenuItems={['Connect Via Vpn']} />
+        <SidebarItem icon="Calendar" text="System" submenuItems={['View Schedule', 'Add New Schedule']} />
+        <SidebarItem icon="File" text="Network" submenuItems={['View Reports', 'Export Reports']} />
+        <SidebarItem icon="Gear" text="Account Settings" submenuItems={['Login', 'Logout']} />
+      </div>
     </div>
   );
-}
+};
+
+const SidebarItem = ({ icon, text, submenuItems }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSubmenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div>
+      <div
+        className="flex items-center gap-3 px-20 py-2 rounded-lg bg-[#283039] hover:bg-[#283041] cursor-pointer"
+        onClick={toggleSubmenu}
+      >
+        <div className="text-white">
+          {/* Replace with actual SVG icons based on the icon prop */}
+          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+            {/* Add the appropriate path for each icon */}
+            <path d="M0 0h256v256H0z" fill="none" />
+          </svg>
+        </div>
+        <p className="text-white text-sm font-medium leading-normal">{text}</p>
+      </div>
+      {isOpen && submenuItems && (
+        <div className="p-3 ml-4 mt-2 flex flex-col">
+          {submenuItems.map((subItem, index) => (
+            <div key={index} className="px-3 py-2 text-gray-300 hover:bg-[#283041] rounded-lg cursor-pointer">
+              {subItem}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Sidebar;
