@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/build-alpha-blueviolet?style=for-the-badge" />
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux-informational?style=for-the-badge" />
   <img src="https://img.shields.io/badge/network-openvpn-critical?style=for-the-badge&logo=openvpn" />
-  <img src="https://img.shields.io/github/license/yourusername/projectname?style=for-the-badge" />
+  <img src="https://img.shields.io/github/license/prashik287/WinSecure?style=for-the-badge" />
 </p>
 
 > **“Silent. Agentless. Relentless.”**  
